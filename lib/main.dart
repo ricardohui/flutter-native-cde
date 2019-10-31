@@ -29,9 +29,9 @@ class _MyHomePageState extends State<MyHomePage> {
     const platform = MethodChannel('course.flutter.dev/battery');
     try {
       final batteryLevel = await platform.invokeMethod('getBatteryLevel');
-    setState(() {
+      setState(() {
         _batteryLevel = batteryLevel;
-    });
+      });
     } on PlatformException catch (error) {
       setState(() {
         _batteryLevel = null;
@@ -42,6 +42,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   void initState() {
     super.initState();
+    _getBatteryLevel();
   }
 
   @override
